@@ -35,7 +35,9 @@ In any case, besides the paramaters of the evaluation, this implementation provi
 # Evaluation on MS COCO:
 First clone/download the "cocoLRPapi-master" folder:
   ## Using Python:
-  Python steps...(Coming Soon)
+  1. Execute the command "make" from terminal in the PythonAPI folder.
+  2. For the demo, just run the evalDemoLRP.py script to test whether your computer satisfies the requirements.
+  3. In order to test with your own ground truth and detection results, set the following 4 parameters in the evalDemoLRP.m script: the ground truth file path in line 8, the detection result file path in line 11, the tau parameter, the minimum IoU to validate a detection in line 14 and finally DetailedLRPResultNeeded parameter to 0 or 1. If it is DetailedLRPResultNeeded is 1, then you will see all of the 4 different set of outputs in the terminal. If it is 0, then you will see the results for 2-4 (oLRP, moLRP values and Optimal Class Specific Thresholds).
   ## Using MATLAB:
   1. For the demo, just run the evalDemoLRP.m script to test whether your computer satisfies the requirements.
   2. In order to test with your own ground truth and detection results, set the following 3 parameters in the evalDemoLRP.m script: the ground truth file path in line 7, the detection result file path in line 10 and the tau parameter, the minimum IoU to validate a detection in line 21. 
