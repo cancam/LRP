@@ -5,6 +5,15 @@ This is an implementation of [LRP](arxiv link) on Python and MATLAB for datasets
 # Getting Started:
 For MS COCO dataset, the official toolkit is modified for LRP Metric evaluation. So you will find a similar folder organization with the official toolkit. Currently, you can find the 2017 train/val annotations under the annotations folder of the cocoLRPapi-master and a Faster R-CNN result file under the results folder of cocoLRPapi-master.
 
+For Pascal VOC dataset... (Coming Soon)
+
+In any case, besides the paramaters of the evaluation, this implementation provides 4 different set of outputs
+
+1. LRP values and LRP components for each class and each confidence score threshold
+2. oLRP values and oLRP components for each class 
+3. moLPR value and moLRP components for the detector
+4. Optimal Class Specific Thresholds for each class
+
 # Evaluation on MS COCO:
 Evaluation steps for MS COCO
 Download cocoLRPapi-master folder
