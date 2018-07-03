@@ -30,4 +30,4 @@ Evaluation steps for PASCAL-VOC.
  MATLAB steps.
 
 # Requirements:
-Python 2.7 or MATLAB (The implementation is based on MATLAB R2017b). (extend with other requirements such as frameworks)
+Python 2.7 or MATLAB (The implementation is based on MATLAB R2017b)
