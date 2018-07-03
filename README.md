@@ -1,4 +1,4 @@
-# LRP Performance Metric for Object Detection
+# LRP Performance Metric&Thresholder for Object Detection
 
 This is an implementation of [LRP](arxiv link) on Python and MATLAB for datasets PASCAL-VOC and MS COCO. The evaluation methodology uses number of false negative detections, number of false positive detections and a tightness measure for true positive detections. 
 
