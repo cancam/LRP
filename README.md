@@ -1,6 +1,14 @@
 # LRP Performance Metric&Thresholder for Object Detection
 
-This is an implementation of [LRP](arxiv link) on Python and MATLAB for datasets PASCAL-VOC and MS COCO. 
+This repository contains Python and MATLAB implementations of the [LRP](arxiv link) performance metric. PASCAL-VOC and MS COCO datasets are supported. Please cite the following paper if you use LRP. 
+
+Kemal Oksuz, Baris Can Cam, Emre Akbas, Sinan Kalkan, ``Localization Recall Precision (LRP): A New Performance Metric for Object Detection,'' In: European Conference on Computer Vision (2018). 
+
+In a nutshell, LRP is an alternative to average precision (AP) which is the area under the recall-precision curve and is the dominant performance measure used in object detection. 
+
+<buraya bir figure gelse cok iyi olur. bizim paper'daki ilk figure olur bence> 
+
+<asagidaki ayrintilari verelim tabi ama en basta mi vermek lazim bilmiyorum>
 
 LRP has mainly two purposes:
 
