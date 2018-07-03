@@ -23,7 +23,7 @@ In any case, besides the paramaters of the evaluation, this implementation provi
 # Evaluation on MS COCO:
 First clone/download cocoLRPapi-master folder
   ## Using Python:
-  Python steps.
+  Python steps...(Coming Soon)
   ## Using MATLAB:
   1. For the demo, just run the evalDemoLRP.m script to test whether your computer satisfies the requirements.
   2. In order to test with your own ground truth and detection results, set the following 3 parameters in the evalDemoLRP.m script: the ground truth file path in line 7, the detection result file path in line 10 and the tau parameter, the minimum IoU to validate a detection in line 21. 
@@ -32,9 +32,9 @@ Note that MS COCO uses json files as the standard detection&annotation format. S
 # Evaluation on PASCAL-VOC:
 Evaluation steps for PASCAL-VOC.
  ## Using Python:
- Python steps.
+ Python steps...(Coming Soon)
  ## Using MATLAB:
- MATLAB steps.
+ MATLAB steps...(Coming Soon)
 
 # Requirements:
-Python 2.7 or MATLAB (The implementation is based on MATLAB R2017b)
+Python 2.7 or MATLAB (Our implementation is based on MATLAB R2017b)
