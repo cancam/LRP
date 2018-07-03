@@ -15,13 +15,13 @@ In any case, besides the paramaters of the evaluation, this implementation provi
 4. Optimal Class Specific Thresholds for each class
 
 # Evaluation on MS COCO:
-Evaluation steps for MS COCO
 Download cocoLRPapi-master folder
   ## Using Python:
   Python steps.
   ## Using MATLAB:
   1. For the demo, just run the evalDemoLRP.m script to test whether your computer satisfies the requirements.
   2. In order to test with your own ground truth and detection results, set the following 3 parameters in the evalDemoLRP.m script: the ground truth file path in line 7, the detection result file path in line 10 and the tau parameter, the minimum IoU to validate a detection in line 21. Note that MS COCO uses json files as the standard detection&annotation format. See http://cocodataset.org for further information.
+  
 # Evaluation on PASCAL-VOC:
 Evaluation steps for PASCAL-VOC.
  ## Using Python:
@@ -36,25 +36,3 @@ Whether needed or not?
 
 ## Requirements:
 Python 2.7 or MATLAB (The implementation is based on MATLAB R2017b). (extend with other requirements such as frameworks)
-
-### MS COCO Requirements:
-Describe MS COCO 
-## Installation
-Describe installation steps for MS COCO
-1. Install dependencies
-   ```bash
-   pip3 install -r requirements.txt
-   ```
-2. Clone this repository
-3. Run setup from the repository root directory
-    ```bash
-    python3 setup.py install
-    ``` 
-3. Download pre-trained COCO weights (mask_rcnn_coco.h5) from the [releases page](https://github.com/matterport/Mask_RCNN/releases).
-4. (Optional) To train or test on MS COCO install `pycocotools` from one of these repos. They are forks of the original pycocotools with fixes for Python3 and Windows (the official repo doesn't seem to be active anymore).
-
-    * Linux: https://github.com/waleedka/coco
-    * Windows: https://github.com/philferriere/cocoapi.
-    You must have the Visual C++ 2015 build tools on your path (see the repo for additional details)
-### PASCAL-VOC Requirements:
-Describe PASCAL-VOC installation steps for PASCAL-VOC
