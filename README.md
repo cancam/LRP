@@ -8,6 +8,8 @@ In a nutshell, LRP is an alternative to average precision (AP), which is the are
 
 ![LRP Toy Example](assets/figure1.png)
 
+For the example above, there are three different object detection results are shown (for an image from ILSVRC 2015 Dataset) with very different RP curves. Note that, they all have same same AP. AP is not able to identify the difference between these curves. For subfigures a,b and c; red, blue and green colors denote ground-truth bounding boxes, true positive detections and false positive detections respectively. The numerical values in the images denote confidence scores. For subfigures d,e and f; RP curves, AP and oLRP results for the coressponding detections in subfigures a,b and c. Red crosses denote Optimal LRP points.
+
 <asagidaki ayrintilari verelim tabi ama en basta mi vermek lazim bilmiyorum>
 
 # What does LRP provide?
