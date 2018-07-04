@@ -6,7 +6,7 @@ Kemal Oksuz, Baris Can Cam, Emre Akbas, Sinan Kalkan, ``Localization Recall Prec
 
 In a nutshell, LRP is an alternative to average precision (AP), which is the area under the recall-precision curve and is currently the dominant performance measure used in object detection. 
 
-<buraya bir figure gelse cok iyi olur. bizim paper'daki ilk figure olur bence> 
+![LRP Toy Example](assets/figure1.png)
 
 <asagidaki ayrintilari verelim tabi ama en basta mi vermek lazim bilmiyorum>
 
