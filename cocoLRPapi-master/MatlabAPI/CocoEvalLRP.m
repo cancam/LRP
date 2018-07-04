@@ -148,9 +148,9 @@ classdef CocoEvalLRP < handle
             end
         end
         IoUoverlap=IoUoverlap.*tps;
-        %IoUoverlap=zeros(1,detcount);
-        %detidlist=extractfield(ev.cocoDt.data.annotations,'id');
-        %gtidlist=extractfield(ev.cocoGt.data.annotations,'id');
+%         IoUoverlap=zeros(1,detcount);
+%         detidlist=extractfield(ev.cocoDt.data.annotations,'id');
+%         gtidlist=extractfield(ev.cocoGt.data.annotations,'id');
 %         for tp=1:detcount
 %             if tps(tp)==1
 %                 detectionid=E.dtIds(o(tp));
@@ -162,7 +162,7 @@ classdef CocoEvalLRP < handle
 %                 IoUoverlap(tp)=1-CocoEvalLRP.boxoverlap(detbox,gtbox);
 %             end
 %         end
-          
+%           
         for s=1:S
             thrind(s)=sum(sortedscores>=p.confScores(s));
             omega(s,k)=sum(tps(1,1:thrind(s)));
@@ -194,7 +194,7 @@ classdef CocoEvalLRP < handle
       ev.eval=struct('params',p,'date',date,'counts',[S K],...
         'LRPError',LRPError,'BoxLocComp',LocError,'FPComp',FPError,'FNComp',FNError, ...
         'oLRPError',OptLRPError,'oBoxLocComp',OptLocError,'oFPComp',OptFPError,'oFNComp',OptFNError,...
-        'moLRP',moLRP,'moLRPLoc',moLRPLoc,'moLRPFP',moLRPFP,'moLRPFN',moLRPFN,'ClassSpecificThresholds',Threshold);
+        'moLRP',moLRP,'moLRPLoc',moLRPLoc,'moLRPFP',moLRPFP,'moLRPFN',moLRPFN,'ClassSpecificThresholds',Threshold,'IoU',IoUoverlap);
       fprintf('DONE (t=%0.2fs).\n',etime(clock,clk));
     end
     
