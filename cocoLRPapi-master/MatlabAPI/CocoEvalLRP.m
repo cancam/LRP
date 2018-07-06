@@ -121,7 +121,7 @@ classdef CocoEvalLRP < handle
       if(isempty(ev.evalImgs)), error('Please run evaluate() first'); end
       p=ev.params; T=length(p.iouThrs); S=length(p.confScores);
       K=length(p.catIds); 
-      omega=zeros(S,K);nhat=zeros(S,K);mhat=zeros(S,K);
+      TP=zeros(S,K);FP=zeros(S,K);FN=zeros(S,K);
       LRPError=-ones(S,K); LocError=-ones(S,K);
       FPError=-ones(S,K); FNError=-ones(S,K);
       OptLRPError=-ones(1,K); OptLocError=-ones(1,K);
@@ -148,49 +148,41 @@ classdef CocoEvalLRP < handle
             end
         end
         IoUoverlap=IoUoverlap.*tps;
-        %IoUoverlap=zeros(1,detcount);
-        %detidlist=extractfield(ev.cocoDt.data.annotations,'id');
-        %gtidlist=extractfield(ev.cocoGt.data.annotations,'id');
-%         for tp=1:detcount
-%             if tps(tp)==1
-%                 detectionid=E.dtIds(o(tp));
-%                 gtid=E.dtMatches(o(tp));
-%                 detindx=find(detidlist==detectionid);
-%                 gtindx=find(gtidlist==gtid);
-%                 detbox=[ev.cocoDt.data.annotations(detindx).bbox(1,1), ev.cocoDt.data.annotations(detindx).bbox(1,2), ev.cocoDt.data.annotations(detindx).bbox(1,1)+ev.cocoDt.data.annotations(detindx).bbox(1,3), ev.cocoDt.data.annotations(detindx).bbox(1,2)+ev.cocoDt.data.annotations(detindx).bbox(1,4)];
-%                 gtbox=[ev.cocoGt.data.annotations(gtindx).bbox(1,1), ev.cocoGt.data.annotations(gtindx).bbox(1,2), ev.cocoGt.data.annotations(gtindx).bbox(1,1)+ev.cocoGt.data.annotations(gtindx).bbox(1,3), ev.cocoGt.data.annotations(gtindx).bbox(1,2)+ev.cocoGt.data.annotations(gtindx).bbox(1,4)];
-%                 IoUoverlap(tp)=1-CocoEvalLRP.boxoverlap(detbox,gtbox);
-%             end
-%         end
-          
         for s=1:S
             thrind(s)=sum(sortedscores>=p.confScores(s));
-            omega(s,k)=sum(tps(1,1:thrind(s)));
-            nhat(s,k)=sum(fps(1,1:thrind(s))) ;
-            mhat(s,k)=np-omega(s,k);
-            l=max((omega(s,k)+nhat(s,k)),np);
-            FPError(s,k)=(1-p.iouThrs)*(nhat(s,k)/l);
-            FNError(s,k)=(1-p.iouThrs)*(mhat(s,k)/l);
+            TP(s,k)=sum(tps(1,1:thrind(s)));
+            FP(s,k)=sum(fps(1,1:thrind(s))) ;
+            FN(s,k)=np-TP(s,k);
+            %For stability, svoid dividing zero
+            l=max((TP(s,k)+FP(s,k)),np);
+            FPError(s,k)=(1-p.iouThrs)*(FP(s,k)/l);
+            FNError(s,k)=(1-p.iouThrs)*(FN(s,k)/l);
+            Z=((TP(s,k)+FN(s,k)+FP(s,k))/l);
             
-            Z=((omega(s,k)+mhat(s,k)+nhat(s,k))/l);
+            %Compute LRP error
             LRPError(s,k)=(sum(IoUoverlap(1:thrind(s)))/l)+FPError(s,k)+FNError(s,k);            
             LRPError(s,k)=LRPError(s,k)/Z;
             LRPError(s,k)=LRPError(s,k)/(1-p.iouThrs);
             
-            LocError(s,k)=sum(IoUoverlap(1:thrind(s)))/omega(s,k);
-            FPError(s,k)=nhat(s,k)/(omega(s,k)+nhat(s,k));
-            FNError(s,k)=mhat(s,k)/np;
+            %Compute Components
+            LocError(s,k)=sum(IoUoverlap(1:thrind(s)))/TP(s,k);
+            FPError(s,k)=FP(s,k)/(TP(s,k)+FP(s,k));
+            FNError(s,k)=FN(s,k)/np;
         end
+        %Compute oLRP
         [OptLRPError(1,k),index(1,k)]=min(LRPError(:,k));
         OptLocError(1,k)=LocError(index(1,k),k);
         OptFPError(1,k)=FPError(index(1,k),k);
         OptFNError(1,k)=FNError(index(1,k),k);
+        %Compute Threshold
         Threshold(1,k)=(index(1,k)-1)*0.01;         
       end
+      %Compute moLRP
       moLRPLoc=mean(OptLocError,'omitNaN');
       moLRPFP=mean(OptFPError,'omitNaN');
       moLRPFN=mean(OptFNError,'omitNaN');
       moLRP=mean(OptLRPError);      
+      
       ev.eval=struct('params',p,'date',date,'counts',[S K],...
         'LRPError',LRPError,'BoxLocComp',LocError,'FPComp',FPError,'FNComp',FNError, ...
         'oLRPError',OptLRPError,'oBoxLocComp',OptLocError,'oFPComp',OptFPError,'oFNComp',OptFNError,...
