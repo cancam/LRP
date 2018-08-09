@@ -53,3 +53,15 @@ Evaluation steps for PASCAL-VOC.
 
 # Requirements:
 Python 2.7 or MATLAB (Our implementation is based on MATLAB R2017b)
+
+
+## Citation
+If you find this code useful for your research, please consider citing our paper:
+```
+@Inproceedings{LRP-ECCV18,
+  Title          = {Localization Recall Precision (LRP): A New Performance Metric for Object Detection},
+  Author         = {Oksuz, Kemal and Cam, Baris and Akbas, Emre and Kalkan, Sinan},
+  Booktitle      = {European Conference on Computer Vision (ECCV)},
+  Year           = {2018}
+}
+```
