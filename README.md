@@ -46,7 +46,6 @@ First clone/download the "cocoLRPapi-master" folder:
 Note that MS COCO uses json files as the standard detection&annotation format. See http://cocodataset.org for further information.
 # Evaluation on PASCAL-VOC:
 Evaluation steps for PASCAL-VOC.
- ## Using Python:
 
 ## Preperation:
   Clone this repository into your local.
@@ -89,7 +88,9 @@ Evaluation steps for PASCAL-VOC.
    ```
    ln -s $VOCdevkit VOCdevkit
    ```
-    
+
+
+## Using Python:
 ## Execution: 
   pascal-voc-lrp evaluation kit can be executed with two ways. Either you can provide a pickle file in which all the detections are included or you can provide offical pascal-voc class-wise text files. The pickle file should have the same format with the one provided as an example (see: ${pascal-voc-lrp}/results/det/detections_voc_test_base.pkl). Evaluation results will be provided by a text file that contains class-wise and overall results in ${pascal-voc-lrp}/results/eval/lrp_results.txt by default.
 
