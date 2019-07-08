@@ -1,4 +1,5 @@
  # ignore all temp files.
 *.pyc
+*.swp
 # ignore symlinks
 VOCdevkit
