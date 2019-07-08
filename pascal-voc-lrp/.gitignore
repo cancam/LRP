@@ -1,0 +1,4 @@
+ # ignore all temp files.
+*.pyc
+# ignore symlinks
+VOCdevkit
