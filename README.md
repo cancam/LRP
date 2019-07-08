@@ -60,28 +60,28 @@ Evaluation steps for PASCAL-VOC.
    This repository follows the offical structure of PASCAL-VOC development kit.
    1. Download training, validation (optional) and test data and VOC-devkit.
     
-    ```
-    wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar
-    wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar
-    wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCdevkit_08-Jun-2007.tar
-    ```
+   ```
+   wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar
+   wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar
+   wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCdevkit_08-Jun-2007.tar
+   ```
     
    Extract all content.
     
-    ```
-    tar xvf VOCtrainval_06-Nov-2007.tar
-    tar xvf VOCtest_06-Nov-2007.tar
-    tar xvf VOCdevkit_08-Jun-2007.tar
-    ```
+   ```
+   tar xvf VOCtrainval_06-Nov-2007.tar
+   tar xvf VOCtest_06-Nov-2007.tar
+   tar xvf VOCdevkit_08-Jun-2007.tar
+   ```
    
    3. Directory should have the following basis structure.
    
-    ```
-    $VOCdevkit/                           # development kit
-    $VOCdevkit/VOCcode/                   # VOC utility code
-    $VOCdevkit/VOC2007                    # image sets, annotations, etc.
-    # ... and several other directories ...
-    ```
+   ```
+   $VOCdevkit/                           # development kit
+   $VOCdevkit/VOCcode/                   # VOC utility code
+   $VOCdevkit/VOC2007                    # image sets, annotations, etc.
+   # ... and several other directories ...
+   ```
     
    4. Either you can put the entire pascal-voc evaluation kit under the pascal-voc-lrp directory or a better approach is that you can create symbolic link to "VOCdevkit" under pascal-voc-lrp directory with the following command.
     
