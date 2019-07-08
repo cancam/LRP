@@ -105,23 +105,23 @@ python pascal_voc
 
   Arguments:
   
-    ```
-    --use_pickle: Flag to evaluate model detections directly from saved pickle file.*
+   ```
+   --use_pickle: Flag to evaluate model detections directly from saved pickle file.*
     
-    --boxes_path: Path to previously mentioned pickle file.
+   --boxes_path: Path to previously mentioned pickle file.
     
-    --tau: IoU threshold to evaluate detection.
+   --tau: IoU threshold to evaluate detection.
     
-    --save_results: To specify the path of the text file that contains class-wise and overall results under lrp and ap metrics.
+   --save_results: To specify the path of the text file that contains class-wise and overall results under lrp and ap metrics.
     
-    --set: Which set to perform evaluation on. (train, val, test)
+   --set: Which set to perform evaluation on. (train, val, test)
     
-    --year: Which year to perform evaluation on. (i.e.: VOC2007, VOC2012)
+   --year: Which year to perform evaluation on. (i.e.: VOC2007, VOC2012)
     
-    --comp: Whether to use competition mode or not.
+   --comp: Whether to use competition mode or not.
     
-    --devkit_path: To specify a different devkit path.
-    ```
+   --devkit_path: To specify a different devkit path.
+   ```
 
  ## Using MATLAB:
  MATLAB steps...(Coming Soon)
