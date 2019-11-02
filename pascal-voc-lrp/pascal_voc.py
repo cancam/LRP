@@ -372,7 +372,7 @@ class pascal_voc(imdb):
         self.resultsLRP.olrpfp = oLRPFP
         self.resultsLRP.olrpfn = oLRPFN
         self.resultsLRP.ap = ap
-        
+        pdb.set_trace() 
         # write summary
         self.write_summary()
 
@@ -400,16 +400,17 @@ class pascal_voc(imdb):
             self.config['use_comp'] = False
     
     def write_summary(self): 
+        pdb.set_trace()
         self.results_fid.write("--------------------------Overall Results------------------------------\n")
         self.results_fid.write("moLRP: {},\n" \
                                 "moLRP.Loc: {}\n" \
                                 "moLRP.FP: {}\n" \
                                 "moLRP.FN: {}\n" \
-                                "mAP: {}\n\n".format(self.resultsLRP.olrp.mean(),\
-                                                     self.resultsLRP.olrploc.mean(),\
-                                                     self.resultsLRP.olrpfp.mean(),\
-                                                     self.resultsLRP.olrpfn.mean(),\
-                                                     self.resultsLRP.ap.mean()))
+                                "mAP: {}\n\n".format(self.resultsLRP.olrp[1:].mean(),\
+                                                     self.resultsLRP.olrploc[1:].mean(),\
+                                                     self.resultsLRP.olrpfp[1:].mean(),\
+                                                     self.resultsLRP.olrpfn[1:].mean(),\
+                                                     self.resultsLRP.ap[1:].mean()))
 
     def write_results(self): 
         self.results_fid.write("--------------------------Classwise Results: {}--------------------------\n".format(self.resultsLRP.cls))
