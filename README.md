@@ -1,6 +1,6 @@
 # LRP (Localization Recall Precision) Performance Metric & Thresholder for Object Detection
 
-This repository contains Python and MATLAB implementations of the [LRP](arxiv link) object detection performance metric. The repository supports both PASCAL-VOC and MS COCO datasets. Please cite the following paper if you use LRP. 
+This repository contains Python and MATLAB implementations of the [[LRP]](https://arxiv.org/abs/1807.01696) object detection performance metric. The repository supports both PASCAL-VOC and MS COCO datasets. Please cite the following paper if you use LRP. 
 
 Kemal Oksuz, Baris Can Cam, Emre Akbas, Sinan Kalkan, "Localization Recall Precision (LRP): A New Performance Metric for Object Detection," In: European Conference on Computer Vision (2018). 
 
@@ -23,7 +23,7 @@ In the figure above, three different object detection results are shown (for an 
 The official MS COCO toolkit is modified for LRP Metric evaluation. So you will find a similar folder organization with the official toolkit. Currently, you can find the 2017 train/val annotations under the annotations folder of the cocoLRPapi-master and a Faster R-CNN result file under the results folder of cocoLRPapi-master.
 
 ## Pascal VOC dataset
-(Coming Soon)
+Python implementation has been released. Please see below.
 
 ## What the implementation provides
 In any case, besides the paramaters of the evaluation, this implementation provides 4 different set of outputs:
