@@ -320,7 +320,7 @@ class COCOevalLRP:
             tps = np.squeeze(np.logical_and(               dtm,  np.logical_not(dtIg) )*1)
             fps = np.squeeze(np.logical_and(np.logical_not(dtm), np.logical_not(dtIg) )*1)
             IoUoverlap=np.multiply(IoUoverlap,tps)
-            np.set_printoptions(threshold=np.nan)
+            np.set_printoptions(threshold=sys.maxsize)
             for s, s0 in enumerate(_pe.confScores):
                 thrind=np.sum(dtScoresSorted>=s0)
                 omega[s,k]=np.sum(tps[0:thrind])
