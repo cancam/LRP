@@ -6,6 +6,7 @@ import time
 from collections import defaultdict
 from . import mask as maskUtils
 import copy
+import pdb
 import sys
 
 class COCOevalLRP:
@@ -337,16 +338,23 @@ class COCOevalLRP:
                 FPError[s,k]=nhat[s,k]/(omega[s,k]+nhat[s,k]);
                 FNError[s,k]=mhat[s,k]/npig
             
-            OptLRPError[0,k]=min(LRPError[:,k])
+            OptLRPError[0,k]=min(LRPError[:,k]) 
             ind=np.argmin(LRPError[:,k])
             OptLocError[0,k]=LocError[ind,k]
             OptFPError[0,k]=FPError[ind,k]
             OptFNError[0,k]=FNError[ind,k]
             Threshold[0,k]=ind*0.01
+            no_gt = (OptLRPError == -1)
+            OptLRPError[no_gt] = np.nan
+            OptLocError[no_gt] = np.nan 
+            OptFPError[no_gt] = np.nan 
+            OptFNError[no_gt] = np.nan 
+            Threshold[no_gt] = np.nan
+
         moLRPLoc=np.nanmean(OptLocError)
         moLRPFP=np.nanmean(OptFPError)
         moLRPFN=np.nanmean(OptFNError)
-        moLRP=np.mean(OptLRPError)
+        moLRP=np.nanmean(OptLRPError)
 
         self.eval = {
             'params': p,
