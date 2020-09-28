@@ -310,7 +310,7 @@ class COCOevalLRP:
 
             dtm  = np.concatenate([e['dtMatches'][:,0:p.maxDets] for e in E], axis=1)[:,inds]
             dtIg = np.concatenate([e['dtIgnore'][:,0:p.maxDets]  for e in E], axis=1)[:,inds]
-            IoUoverlap = np.squeeze(np.concatenate([e['dtIoUs'][:,0:p.maxDets]  for e in E], axis=1)[:,inds])
+            IoUoverlap = np.squeeze(np.concatenate([e['dtIoUs'][:,0:p.maxDets]  for e in E], axis=1)[:,inds], axis=0)
             for i in range(len(IoUoverlap)):
                 if IoUoverlap[i]!=0:
                     IoUoverlap[i]=1-IoUoverlap[i]
@@ -403,7 +403,7 @@ class COCOevalLRP:
             print('------------------------------------------------------ \n ')
             print('3.Mean Optimal LRP and Components:')
             print('------------------------------------------------------ \n ')
-            print('moLRP={:0.4f}, moLRP_LocComp={:0.4f}, moLRP_FPComp={:0.4f}, moLRP_FPComp={:0.4f} \n'.format(self.eval['moLRP'], self.eval['moLRPLoc'],self.eval['moLRPFP'],self.eval['moLRPFN']))
+            print('moLRP={:0.4f}, moLRP_LocComp={:0.4f}, moLRP_FPComp={:0.4f}, moLRP_FNComp={:0.4f} \n'.format(self.eval['moLRP'], self.eval['moLRPLoc'],self.eval['moLRPFP'],self.eval['moLRPFN']))
             print('------------------------------------------------------ \n ')
             print('------------------------------------------------------ \n ')
             print('4.Optimal Class Specific Thresholds:\n')
@@ -424,7 +424,7 @@ class COCOevalLRP:
             print('------------------------------------------------------ \n ')
             print('2.Mean Optimal LRP and Components:')
             print('------------------------------------------------------ \n ')
-            print('moLRP={:0.4f}, moLRP_LocComp={:0.4f}, moLRP_FPComp={:0.4f}, moLRP_FPComp={:0.4f} \n'.format(self.eval['moLRP'], self.eval['moLRPLoc'],self.eval['moLRPFP'],self.eval['moLRPFN']))
+            print('moLRP={:0.4f}, moLRP_LocComp={:0.4f}, moLRP_FPComp={:0.4f}, moLRP_FNComp={:0.4f} \n'.format(self.eval['moLRP'], self.eval['moLRPLoc'],self.eval['moLRPFP'],self.eval['moLRPFN']))
             print('------------------------------------------------------ \n ')
             print('------------------------------------------------------ \n ')
             print('3.Optimal Class Specific Thresholds:\n')
