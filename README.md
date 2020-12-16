@@ -1,3 +1,5 @@
+# This repository is deprecated. Please see [LRP-Error](https://github.com/kemaloksuz/LRP-Error), generalised version of LRP for various visual detection tasks.
+
 # LRP (Localization Recall Precision) Performance Metric & Thresholder for Object Detection
 
 This repository contains Python and MATLAB implementations of the [[LRP]](https://arxiv.org/abs/1807.01696) object detection performance metric. The repository supports both PASCAL-VOC and MS COCO datasets. Please cite the following paper if you use LRP. 
